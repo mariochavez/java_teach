@@ -36,6 +36,7 @@ public class Circle extends Figure {
 		return pi;
 	}
 	
+	@Override
 	public String toString() {
 		return buildMessage();
 	}
