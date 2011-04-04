@@ -1,4 +1,4 @@
-public class Circle {
+public class Circle extends Figure {
 	double radio = 0;
 	double pi = 3.1416;
 	
@@ -13,6 +13,10 @@ public class Circle {
 	
 	public double area() {
 		return pi * radio * radio;
+	}
+	
+	public double perimeter() {
+		return 2 * pi * radio;
 	}
 	
 	public double diameter() {

@@ -12,11 +12,14 @@ public class Geo {
 		printData(rectangle);
 		System.out.println(rectangle.getSide1());
 		System.out.println(rectangle.getSide2());
+		
+		Circle circle = new Circle(3);
+		printData(circle);
 	}
 	
-	public static void printData(Cuad cuad) {
-		System.out.println(cuad.area());
-		System.out.println(cuad.perimeter());
+	public static void printData(Figure figure) {
+		System.out.println(figure.area());
+		System.out.println(figure.perimeter());
 	}
 	
 	public static void workingWithCircleObject()
