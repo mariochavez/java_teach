@@ -3,25 +3,31 @@ public class Geo {
 	{	
 		//workingWithCircleClass();
 		//workingWithCircleObject();
+		//workingWithInheritance();
 		
-		Box box = new Box(4.3);
-		drawFigure(box);
-		//printData(box);
-		//System.out.println(box.getSide());
+		Box box = new Box(2);
+		Circle circle = new Circle(4);
 		
-		Rectangle rectangle = new Rectangle(4.3, 2);
-		//rectangle.draw();
-		//printData(rectangle);
-		//System.out.println(rectangle.getSide1());
-		//System.out.println(rectangle.getSide2());
+		printFigureInfo(box);
+		printFigureInfo(circle);
 		
-		//Circle circle = new Circle(3);
-		//printData(circle);
-		
-		//System.out.println("*************");
-		BoxSpecial boxSpecial = new BoxSpecial(3);
-		drawFigure(boxSpecial);
-		//printData(boxSpecial);
+	}
+	
+	public static <T> void printFigureInfo(T figure) {
+		if (figure.getClass().getName() == "Circle") {
+			printFigureInfo2((Circle)figure);
+		} else
+		{
+			printFigureInfo1((Box)figure);
+		}
+	}
+	
+	public static void printFigureInfo1(Box box) {
+		System.out.println(box.getSide());
+	}
+	
+	public static void printFigureInfo2(Circle circle) {
+		System.out.println(circle.getRadio());
 	}
 	
 	public static void drawFigure(Draw figure) {
@@ -32,6 +38,27 @@ public class Geo {
 		System.out.println(figure.area());
 		System.out.println(figure.perimeter());
 		System.out.println(figure.toString());
+	}
+	
+	public static void workingWithInheritance()
+	{
+		Box box = new Box(4.3);
+		drawFigure(box);
+		printData(box);
+		System.out.println(box.getSide());
+		
+		Rectangle rectangle = new Rectangle(4.3, 2);
+		printData(rectangle);
+		System.out.println(rectangle.getSide1());
+		System.out.println(rectangle.getSide2());
+		
+		Circle circle = new Circle(3);
+		printData(circle);
+		
+		System.out.println("*************");
+		BoxSpecial boxSpecial = new BoxSpecial(3);
+		drawFigure(boxSpecial);
+		printData(boxSpecial);
 	}
 	
 	public static void workingWithCircleObject()
