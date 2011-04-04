@@ -1,6 +1,10 @@
-public class Box {
-	public static double calculaArea(double l)
+public class Box extends Cuad {
+	public Box(double side) { 
+		super(side);
+	}
+				
+	public double getSide()
 	{
-		return l * l;
+		return side1;
 	}
 }

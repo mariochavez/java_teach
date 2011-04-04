@@ -5,7 +5,7 @@ public class Circle {
 	public Circle() {
 		System.out.println("Inicializando objecto de tipo Circle");
 	}
-	
+		
 	public Circle(double radio) {
 		System.out.println("Inicializando con radio " + radio);
 		this.radio = radio;

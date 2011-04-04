@@ -1,17 +1,26 @@
 public class Geo {
 	public static void main(String[] args)
+	{	
+		//workingWithCircleClass();
+		//workingWithCircleObject();
+		
+		Box box = new Box(4.3);
+		printData(box);
+		System.out.println(box.getSide());
+		
+		Rectangle rectangle = new Rectangle(4.3, 2);
+		printData(rectangle);
+		System.out.println(rectangle.getSide1());
+		System.out.println(rectangle.getSide2());
+	}
+	
+	public static void printData(Cuad cuad) {
+		System.out.println(cuad.area());
+		System.out.println(cuad.perimeter());
+	}
+	
+	public static void workingWithCircleObject()
 	{
-		double pi, a, r, l;
-		pi = 3.1416;
-		r = 3;
-		l = 5;
-		
-		a = Circle.calculaArea(pi, r);
-		System.out.println(a);
-		
-		a = Box.calculaArea(l);
-		System.out.println(a);
-		
 		Circle c1 = new Circle(3.4);
 		System.out.println("Area de mi objeto Circle es " + c1.area());
 		
@@ -24,6 +33,16 @@ public class Geo {
 		c1.setRadio(5.8);
 		System.out.println("Area de mi objeto Circle es " + c1.area());
 		
-		System.out.println(c2.toString());
+		System.out.println(c2.toString());		
+	}
+	
+	public static void workingWithCircleClass()
+	{
+		double pi, a, r;
+		pi = 3.1416;
+		r = 3;
+		
+		a = Circle.calculaArea(pi, r);
+		System.out.println(a);		
 	}
 }
