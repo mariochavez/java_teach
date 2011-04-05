@@ -6,23 +6,30 @@ public class Ejemplo {
 		//primitiveCast();
 		//classCast();
 		//exceptions();
+		//arrayExample();
 
-		Client[] clients = new Client[2];
-		
+		Hashtable<String, Client> clients = new Hashtable<String, Client>();
 		Client client = new Client();
 		client.setName("Empresa1");
 		
-		clients[0] = client;
+		clients.put(client.getName(), client);
 		
 		client = new Client();
 		client.setName("Empresa2");
 		
-		clients[1] = client;
+		clients.put(client.getName(), client);
 		
-		for(int i = 0; i < clients.length; i++) {
-			print(clients[i].toString());
-			print("**************");
+	print(clients.get("Empresa1").toString());
+	
+		for(Client c : clients.values()) {
+			print(c.toString());
 		}
+		
+		for(String k : clients.keySet()) {
+			print(k);
+		}
+		
+		print(clients.containsKey("Empresa3"));
 	}
 	
 	public static void print(Object data) {
@@ -77,5 +84,39 @@ public class Ejemplo {
 		throw new FileNotFoundException("El archivo readme.txt no fue encontrado");
 		
 		//print(y);
+	}
+	
+	public static void arrayExample() {
+		//Client[] clients = new Client[2];
+		ArrayList<Client> clients = new ArrayList<Client>();
+		
+		Client client = new Client();
+		client.setName("Empresa1");
+		
+		//clients[0] = client;
+		clients.add(client);
+		
+		client = new Client();
+		client.setName("Empresa2");
+		
+		//clients[1] = client;
+		clients.add(client);
+		
+		//clients.add(5);
+		
+		/*for(int i = 0; i < clients.length; i++) {
+			print(clients[i].toString());
+			print("**************");
+		}*/
+		
+		for(Client c : clients) {
+			//Client c = (Client)i.next();
+			print(c.getName());
+			print("**************");
+		}
+		
+		print(clients.size());
+		print(clients.get(1).toString());
+		print(clients.contains(new Client()));
 	}
 }
