@@ -10,6 +10,10 @@ Para ejecutarlos en el directorio del codigo fuente ejecutamos:
 Donde <Clase> es el nombre de la clase que contiene el metodo: 
 	public static void main()
 
+# Ejemplos con Base de datos
+Para ejecutar los ejemplos con el driver de MySQL hay que modificar el classpath de Java para incluir el jar de MySQL:
+	java -cp ./:./mysql-connector-java-5.1.15-bin.jar  EjemploDB
+
 # Licencia
 The MIT License
 
