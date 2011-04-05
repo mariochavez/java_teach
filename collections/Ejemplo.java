@@ -1,11 +1,28 @@
 import java.io.*;
+import java.util.*;
 
 public class Ejemplo {
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		//primitiveCast();
 		//classCast();
 		//exceptions();
 
+		Client[] clients = new Client[2];
+		
+		Client client = new Client();
+		client.setName("Empresa1");
+		
+		clients[0] = client;
+		
+		client = new Client();
+		client.setName("Empresa2");
+		
+		clients[1] = client;
+		
+		for(int i = 0; i < clients.length; i++) {
+			print(clients[i].toString());
+			print("**************");
+		}
 	}
 	
 	public static void print(Object data) {
@@ -44,7 +61,7 @@ public class Ejemplo {
 		print(company1.toString());
 	}
 	
-	public static void exceptions() {
+	public static void exceptions() throws Exception {
 		int x = 3;
 		int y = 0;
 		
