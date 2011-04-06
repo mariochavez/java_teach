@@ -6,19 +6,16 @@ import java.sql.ResultSet;
 
 // import java.sql.*;
 
-public class EjemploDB {
-	private static Connection connection = null;
-	
+public class EjemploDB {	
 	public static void main(String[] args) throws SQLException {
-		loadDriver();
 		
-		connection = openConnection();
-		readData();
+		Connection connection = ConnectionManager.getConnection();
+		readData(connection);
 		
 		connection.close();
 	}
 	
-	public static void readData() throws SQLException {
+	public static void readData(Connection connection) throws SQLException {
 		Statement statement = null;
 		ResultSet resultSet = null;
 		
@@ -35,27 +32,6 @@ public class EjemploDB {
 			
 			resultSet.close();
 			statement.close();
-		}
-	}
-	
-	public static Connection openConnection() {
-		Connection connection = null;
-		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost/CursoSperantus?user=sperantus&password=sperantus");
-		} catch(SQLException ex) {
-			System.out.println(ex.toString());
-		}
-		
-		return connection;
-	}
-	
-	public static void loadDriver() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-		} catch (Exception ex)
-		{
-			print(ex);
-			// No hacemos nada
 		}
 	}
 	
