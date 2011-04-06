@@ -10,29 +10,20 @@ public class EjemploDB {
 	public static void main(String[] args) throws SQLException {
 		
 		Connection connection = ConnectionManager.getConnection();
-		readData(connection);
+		
+		ClientData clientData = new ClientData(connection);
+		Client client = clientData.find(2); //findByName("Mario");
+		
+		// Implementar esto ...
+		// http://www.chuidiang.com/java/mysql/PreparedStatement-java-mysql.php
+		
+		client.setClassification("A");
+		clientData.save(client);
+		// Hasta aqui ...
+		
+		print(client.toString());
 		
 		connection.close();
-	}
-	
-	public static void readData(Connection connection) throws SQLException {
-		Statement statement = null;
-		ResultSet resultSet = null;
-		
-		try {
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery("select * from clients where name = 'Alberto'");	
-		} catch (SQLException ex) {
-			print(ex.toString());
-		} finally {
-			if (resultSet != null) {
-				resultSet.first();
-				print(resultSet.getString("Name"));
-			}
-			
-			resultSet.close();
-			statement.close();
-		}
 	}
 	
 	public static void print(Object data)
