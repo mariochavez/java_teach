@@ -9,6 +9,10 @@ public abstract class Entity {
 		return id;
 	}
 	
+	public boolean isNew() {
+		return id == 0;
+	}
+	
 	@Override
 	public String toString() {
 		return 	"Id: " + id;

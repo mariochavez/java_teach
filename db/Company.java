@@ -1,6 +1,6 @@
 public class Company extends Entity {
-	private String name;
-	private String address;
+	protected String name;
+	protected String address;
 	
 	public String getName() {
 		return name;

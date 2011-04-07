@@ -24,17 +24,31 @@ public abstract class Data {
 		return resultSet;
 	}
 	
-	protected void saveData(String sql, Parameter[] parameters) throws SQLException {
+	protected int saveData(String sql, Parameter[] parameters) throws SQLException {
+		return saveData(sql, parameters, false);
+	}
+	
+	protected int saveData(String sql, Parameter[] parameters, boolean insert) throws SQLException {
 		PreparedStatement statement = null;
 		
 		try {
-			statement = connection.prepareStatement(sql);
+			statement = insert ? connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS) : connection.prepareStatement(sql);
 			setParameters(statement, parameters);
 			
 			statement.executeUpdate();
+			
+			if(insert) {
+				ResultSet keys = statement.getGeneratedKeys();
+				while(keys.next()) {
+					int primaryKey = keys.getInt(1);
+					return primaryKey;
+				}
+			}
 		} catch (SQLException ex) {
 			System.out.println(ex.toString());
 		}
+		
+		return 0;
 	}
 	
 	private void setParameters(PreparedStatement statement, Parameter[] parameters) throws SQLException {
