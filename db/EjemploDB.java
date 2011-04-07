@@ -9,24 +9,20 @@ import java.sql.ResultSet;
 public class EjemploDB {	
 	public static void main(String[] args) throws SQLException {
 		
-		Connection connection = ConnectionManager.getConnection();
-		
-		ClientData clientData = new ClientData(connection);
-		Client clientDB = clientData.find(1);
+		Client clientDB = Client.find(1);
 		// http://www.chuidiang.com/java/mysql/PreparedStatement-java-mysql.php
 		
-		clientDB.setClassification("B");
-		clientData.save(clientDB);
+		clientDB.setClassification("D");
+		clientDB.save();
 		
 		print(clientDB.toString());
 		
 		// Insertando nuevo registro
-		Client clientNew = new Client("Ricardo", "Pacifico", "C");
-		clientData.save(clientNew);
+		Client clientNew = new Client(null, "Pacifico", "C");
+		clientNew.save();
 		
 		print(clientNew.toString());
 		
-		connection.close();
 	}
 	
 	public static void print(Object data)
