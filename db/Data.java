@@ -24,6 +24,19 @@ public abstract class Data {
 		return resultSet;
 	}
 	
+	protected void saveData(String sql, Parameter[] parameters) throws SQLException {
+		PreparedStatement statement = null;
+		
+		try {
+			statement = connection.prepareStatement(sql);
+			setParameters(statement, parameters);
+			
+			statement.executeUpdate();
+		} catch (SQLException ex) {
+			System.out.println(ex.toString());
+		}
+	}
+	
 	private void setParameters(PreparedStatement statement, Parameter[] parameters) throws SQLException {
 		for(int i = 0; i < parameters.length; i++) {
 			Parameter parameter = parameters[i];

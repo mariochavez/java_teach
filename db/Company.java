@@ -1,4 +1,4 @@
-public class Company {
+public class Company extends Entity {
 	private String name;
 	private String address;
 	
@@ -20,7 +20,8 @@ public class Company {
 	
 	@Override
 	public String toString() {
-		return "Name: " + name + "\n" +
+		return 	super.toString() + "\n" +
+			"Name: " + name + "\n" +
 			"Address: " + address;
 	}
 }

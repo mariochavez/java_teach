@@ -12,12 +12,12 @@ public class EjemploDB {
 		Connection connection = ConnectionManager.getConnection();
 		
 		ClientData clientData = new ClientData(connection);
-		Client client = clientData.find(2); //findByName("Mario");
+		Client client = clientData.find(1); //findByName("Mario");
 		
 		// Implementar esto ...
 		// http://www.chuidiang.com/java/mysql/PreparedStatement-java-mysql.php
 		
-		client.setClassification("A");
+		client.setClassification("B");
 		clientData.save(client);
 		// Hasta aqui ...
 		
